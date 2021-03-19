@@ -1,11 +1,11 @@
 package com.gusev.fx;
 
+import javafx.scene.shape.Circle;
 import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
 import javafx.scene.Group;
-import javafx.scene.text.Text;
-
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.scene.shape.Circle;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 
@@ -29,6 +29,8 @@ import java.io.Reader;
 import java.util.Iterator;
 
 public class UpperController implements Initializable {
+    public Pane view;
+
 
 
     @Override
@@ -36,13 +38,20 @@ public class UpperController implements Initializable {
 
         JSONParser parser = new JSONParser();
 
-        try (Reader reader = new FileReader("/home/maxim/Test.json")) {
+        try (Reader reader = new FileReader("/home/maxim/graf.json")) {
 
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
             System.out.println(jsonObject);
 
-           long orderID = (long) jsonObject.get("orderID");
-            System.out.println(orderID);
+            JSONArray nodes = (JSONArray) jsonObject.get("nodes");
+            nodes.forEach((obj)->{
+                JSONObject node = (JSONObject) obj;
+                long Xcenter = (long) node.get("centerx");
+                long Ycenter = (long) node.get("centery");
+                long r = (long) node.get("r");
+                System.out.println(" "+r+" "+Ycenter+" "+Xcenter);
+                view.getChildren().add(new Circle(Xcenter, Ycenter,r));
+            });
 
             String shopperName = (String) jsonObject.get("shopperName");
             System.out.println(shopperName);
@@ -57,8 +66,11 @@ public class UpperController implements Initializable {
             e.printStackTrace();
         }
 
+
+
     }
 
 }
+
 
 
