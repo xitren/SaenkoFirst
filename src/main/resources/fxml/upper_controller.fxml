@@ -8,7 +8,6 @@
    <center>
       <Pane fx:id="view" prefHeight="200.0" prefWidth="200.0" styleClass="circuit" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="248.0" layoutY="90.0" mnemonicParsing="false" prefHeight="123.0" prefWidth="224.0" text="hhhjhh" />
          </children></Pane>
    </center>
 </BorderPane>
