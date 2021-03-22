@@ -3,11 +3,7 @@ package com.gusev.fx;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -63,8 +59,9 @@ public class UpperController implements Initializable {
                 StackPane.setAlignment(label, Pos.TOP_CENTER);
                 StackPane.setMargin(circle, new Insets(circle.getCenterY(), 0, 0, circle.getCenterX()));
                 StackPane.setMargin(label, new Insets(circle.getCenterY(), 0, 0, circle.getCenterX()));
-                view.getChildren().add(stack);
-                view.getChildren().add(stack);
+                Line line = new Line(circle.getCenterX()+3,  circle.getCenterY()+3, 0, 0);
+                view.getChildren().addAll(stack, line);
+
             });
 
         }catch (IOException c) {
