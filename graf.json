@@ -36,5 +36,19 @@
       "centery":280,
       "r":10
       }
+  ],
+  "connections": [
+    {
+      "start": "a",
+      "end": "b"
+    },
+    {
+      "start": "b",
+      "end": "c"
+    },
+    {
+      "start": "e",
+      "end": "f"
+    }
   ]
 }
