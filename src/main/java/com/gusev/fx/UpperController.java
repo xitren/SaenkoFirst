@@ -7,8 +7,6 @@ import javafx.scene.shape.Line;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import org.aspectj.weaver.bcel.BcelRenderer;
-import org.dom4j.Text;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import javafx.geometry.Pos;
@@ -49,18 +47,17 @@ public class UpperController implements Initializable {
                 long Xcenter = (long) node.get("centerx");
                 long Ycenter = (long) node.get("centery");
                 long r = (long) node.get("r");
-                String name = (String) node.get("name");
+                String nodename = (String) node.get("name");
                 System.out.println(" " + r + " " + Ycenter + " " + Xcenter);
+                Nodes nodes1 = new Nodes(nodename, Xcenter,Ycenter, r);
                 StackPane stack = new StackPane();
-                Circle circle = new Circle(Xcenter, Ycenter, r, Color.RED);
-                Label label = new Label(name);
-                stack.getChildren().addAll(circle, label);
-                StackPane.setAlignment(circle, Pos.TOP_CENTER);
-                StackPane.setAlignment(label, Pos.TOP_CENTER);
-                StackPane.setMargin(circle, new Insets(circle.getCenterY(), 0, 0, circle.getCenterX()));
-                StackPane.setMargin(label, new Insets(circle.getCenterY(), 0, 0, circle.getCenterX()));
-                Line line = new Line(circle.getCenterX()+3,  circle.getCenterY()+3, 0, 0);
+                Label label = new Label(nodename);
+                stack.getChildren().addAll(nodes1, label);
+                StackPane.setMargin(nodes1, new Insets(nodes1.getCenterY()-10, 0, 0, nodes1.getCenterX()-10));
+                StackPane.setMargin(label, new Insets(nodes1.getCenterY()-10, 0, 0, nodes1.getCenterX()-10));
+                Line line = new Line(nodes1.getCenterX(),  nodes1.getCenterY(),500 , 500);
                 view.getChildren().addAll(stack, line);
+                System.out.println(nodes1.name);
 
             });
 

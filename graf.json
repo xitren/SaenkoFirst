@@ -1,52 +1,40 @@
 {
-  "graph": {
-    "a": [
-      "b",
-      "c"
-    ],
-    "b": [
-      "c"
-    ],
-    "c": [
-      "d",
-      "e"
-    ]
-,	"d": [
-      "e"
-    ],	"e": [
-      "f"
-    ],	"f": [
-          ]  },
   "nodes": [
     {
       "name": "a",
       "centerx": 100,
       "centery":100,
-      "r":10    },
+      "r":10
+      },
     {
       "name": "b",
       "centerx": 150,
       "centery":100,
-      "r":10    },
+      "r":10
+      },
     {
       "name": "c",
       "centerx": 100,
       "centery":200,
       "r":10
-    }
-, {
+      }, 
+    {
       "name": "d",
       "centerx": 150,
       "centery":250,
       "r":10
-    }, {
+      }, 
+    {
       "name": "e",
       "centerx": 300,
       "centery":120,
-      "r":10    }, {
+      "r":10
+      }, 
+    {
       "name": "f",
       "centerx": 250,
       "centery":280,
       "r":10
-    }  ]
+      }
+  ]
 }
